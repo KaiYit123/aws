@@ -96,7 +96,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <form action="/addemp" autocomplete="on" method = "POST">
+                        <form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
 
                                     <div class="form-group">
                                       <label>Employee ID:</label>
@@ -127,7 +127,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Image:</label>
-                                <input type="file" name="emp_image_file">
+                                <input type=file name="emp_image_file">
                             </div>
                             <div class="form-group">
                               <label for="message">Message:</label>
