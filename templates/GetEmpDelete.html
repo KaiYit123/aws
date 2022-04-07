@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>WorkBalance | Add Employee</title>
+    <title>WorkBalance | Delete Employee</title>
 
     <meta name="description" content="">
     <meta name="author" content="">
@@ -81,10 +82,10 @@
         </nav><!-- /.site-navigation -->
     </header><!-- /#mastheaed -->
 
-    <div id="hero" class="hero overlay subpage-hero contact-hero">
+    <div id="hero" class="hero overlay subpage-hero portfolio-hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Add Employee to Database</h1>
+                <h1>Enter Employee ID to delete</h1>
             </div><!-- /.hero-text -->
         </div><!-- /.hero-content -->
     </div><!-- /.hero -->
@@ -96,46 +97,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
+                        <form action="/fetchdatafordelete" autocomplete="on" method = "POST">
 
                                     <div class="form-group">
                                       <label>Employee ID:</label>
                                       <input type="number" name="emp_id" class="form-control">
                                     </div>
 
-
-                                    <div class="form-group">
-                                        <label>First Name:</label>
-                                        <input type="text" name="first_name" class="form-control">
-                                    </div>
-
-                            <div class="form-group">
-                                <label>Last Name:</label>
-                                <input type="text" name="last_name" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Primary Skill:</label>
-                                <input type="text" name="pri_skill" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Location:</label>
-                                <input type="text" name="location" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Hire Date:</label>
-                                <input type="date" name="date" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Image:</label>
-                                <input type=file name="emp_image_file">
-                            </div>
-                            <div class="form-group">
-                              <label for="message">Message:</label>
-                              <textarea class="form-control form-control-comment" id="message"></textarea>
-                            </div>
-
                             <div class="text-center">
-                                <button class="btn btn-green">Add</button>
+                                <button class="btn btn-green">Search</button>
                             </div>
                         </form>
                     </div>
@@ -170,6 +140,8 @@
         </div><!-- /.copyright -->
     </footer><!-- /#footer -->
 
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -179,7 +151,6 @@
     <script src="static/js/jquery.slicknav.min.js"></script>
     <script src="static/js/jquery.countTo.min.js"></script>
     <script src="static/js/jquery.shuffle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
     <script src="static/js/script.js"></script>
   
 </body>
