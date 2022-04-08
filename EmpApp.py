@@ -157,13 +157,13 @@ def payroll():
 @app.route("/addpayroll", methods=['POST'])
 def addpayroll():
     emp_id = request.form['emp_id']
-    int salary = request.form['salary']
-    int epf = request.form['epf']
-    int socso = request.form['socso']
-    int tax = request.form['tax']
-    int net = request.form['net']
+    salary = request.form['salary']
+    epf = request.form['epf']
+    socso = request.form['socso']
+    tax = request.form['tax']
+    net = request.form['net']
 
-    insert_sql = "INSERT INTO payroll VALUES (%s, %d, %d, %d, %d, %d)"
+    insert_sql = "INSERT INTO payroll VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
     cursor.execute(insert_sql, (emp_id, salary, epf, socso, tax, net))
     db_conn.commit()
