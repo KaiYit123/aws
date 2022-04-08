@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Work Balance | </title>
+    <title>WorkBalance | Add Employee</title>
 
     <meta name="description" content="">
     <meta name="author" content="">
@@ -84,7 +84,7 @@
     <div id="hero" class="hero overlay subpage-hero contact-hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Employee Information</h1>
+                <h1>PayRoll</h1>
             </div><!-- /.hero-text -->
         </div><!-- /.hero-content -->
     </div><!-- /.hero -->
@@ -93,31 +93,55 @@
 
         <section class="site-section subpage-site-section section-contact-us">
 
-            <div class="container" style="text-align: center;">
-                <img class="img-res" src="https://hongkaiyit-bucket.s3.amazonaws.com/emp-id-981_image_file.jpg" alt="">
-
-                <label>Employee ID:</label>
-                <label name="emp_id">{{ user[0] }}</label><br/><br/> 
-    
-                <label>First Name:</label>
-                <label>{{ user[1] }}</label><br/><br/>
-    
-                <label>Last Name:</label>
-                <label>{{ user[2] }}</label><br/><br/>
-    
-                <label>Primary Interest:</label>
-                <label>{{ user[3] }}</label><br/><br/>
-    
-                <label>Location:</label>
-                <label>{{ user[4] }}</label><br/><br/>
-    
-                <label>Image URL:</label>
-                <label><a>{{ user[5] }}</a></label><br/><br/>
-
+            <div class="container">
+                <div class="row mt-50">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 class="text-center heading-separator">Calculate and Add PayRoll</h2>
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                      <label for="email">Employee ID:</label>
+                                      <input type="number" class="form-control" id="emp_id" name="emp_id" required="true">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mt-20">
+                                    <div class="form-group">
+                                      <label for="name">Salary:</label>
+                                      <input type="number" class="form-control" id="salary" name="salary" required="true">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mt-20">
+                                    <div class="form-group">
+                                      <label for="name">EPF:</label>
+                                      <textarea type="number" class="form-control" style="height: 60px; resize: none; " readonly="true" id="epf" name="epf"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mt-20">
+                                    <div class="form-group">
+                                      <label for="name">SOCSO:</label>
+                                      <textarea type="number" class="form-control" style="height: 60px; resize: none; " readonly="true" id="socso" name="socso"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mt-20">
+                                    <div class="form-group">
+                                      <label for="name">Net Salary:</label>
+                                      <textarea type="number" class="form-control" style="height: 60px; resize: none; " readonly="true" id="net" name="net"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-20 col-sm-6">
+                                <input type="button" class="btn btn-green" onClick="multiplyBy()" value="Calculate">
+                            </div>
+                            <div class="text-center mt-20 col-sm-6">
+                                <button type="submit" class="btn btn-green">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.form -->
             </div>
-
-
-        </section>
+            
+        </section><!-- /.section-contact-us -->
 
 
     </main><!-- /#main -->
@@ -156,6 +180,19 @@
     <script src="static/js/jquery.shuffle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
     <script src="static/js/script.js"></script>
-  
+    <script>
+        function multiplyBy()
+        {
+        salary = document.getElementById(
+            "salary").value;
+        document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100);
+        }
+        
+    </script>
 </body>
 </html>
