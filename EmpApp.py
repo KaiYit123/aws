@@ -155,7 +155,7 @@ def payroll():
     return render_template('AddPayRoll.html')
 
 @app.route("/addPayRoll")
-def addPayRoll():
+def AddPayRoll():
     emp_id = request.form['emp_id']
     salary = request.form['salary']
     epf = request.form['epf']
