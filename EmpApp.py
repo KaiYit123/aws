@@ -53,9 +53,9 @@ def getviewemppayroll():
 def viewemppayroll():
     emp_id = request.form['emp_id']
 
-    rtr_sql = "SELECT * FROM payroll WHERE emp_id = %s"
+    select_sql = "SELECT * FROM payroll WHERE emp_id = %s"
     cursor = db_conn.cursor()
-    cursor.execute(rtr_sql,(emp_id))
+    cursor.execute(select_sql,(emp_id))
     db_conn.commit()
     emp = cursor.fetchone()
     cursor.close()
@@ -66,9 +66,9 @@ def viewemppayroll():
 def getemppayrolltoedit():
     emp_id = request.form['emp_id']
 
-    rtr_sql = "SELECT * FROM payroll WHERE emp_id = %s"
+    select_sql = "SELECT * FROM payroll WHERE emp_id = %s"
     cursor = db_conn.cursor()
-    cursor.execute(rtr_sql,(emp_id))
+    cursor.execute(select_sql,(emp_id))
     db_conn.commit()
     emp = cursor.fetchone()
     cursor.close()
@@ -99,9 +99,9 @@ def edit():
 def fetchdataforedit():
     emp_id = request.form['emp_id']
 
-    rtr_sql = "SELECT * FROM employee WHERE emp_id = %s"
+    select_sql = "SELECT * FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
-    cursor.execute(rtr_sql,(emp_id))
+    cursor.execute(select_sql,(emp_id))
     db_conn.commit()
     user = cursor.fetchone()
     cursor.close()
@@ -131,9 +131,9 @@ def delete():
 def fetchdata():
     emp_id = request.form['emp_id']
 
-    rtr_sql = "SELECT * FROM employee WHERE emp_id = %s"
+    select_sql = "SELECT * FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
-    cursor.execute(rtr_sql,(emp_id))
+    cursor.execute(select_sql,(emp_id))
     db_conn.commit()
     user = cursor.fetchone()
     cursor.close()
@@ -143,9 +143,9 @@ def fetchdata():
 def fetchdatafordelete():
     emp_id = request.form['emp_id']
 
-    rtr_sql = "DELETE FROM employee WHERE emp_id = %s"
+    delete_sql = "DELETE FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
-    cursor.execute(rtr_sql,(emp_id))
+    cursor.execute(delete_sql,(emp_id))
     db_conn.commit()
     user = cursor.fetchone()
     cursor.close()
