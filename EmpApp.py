@@ -154,8 +154,8 @@ def AddEmp():
 def payroll():
     return render_template('AddPayRoll.html')
 
-@app.route("/addPayRoll")
-def AddPayRoll():
+@app.route("/addpayroll")
+def addpayroll():
     emp_id = request.form['emp_id']
     salary = request.form['salary']
     epf = request.form['epf']
@@ -169,7 +169,7 @@ def AddPayRoll():
     db_conn.commit()
     cursor.close()            
     
-    return render_template('AddPayRollOutput.html',emp = emp_id)
+    return render_template('AddPayRollOutput.html', emp=emp_id)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
