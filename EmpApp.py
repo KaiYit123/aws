@@ -162,8 +162,8 @@ def addPayRoll():
     insert_sql = "INSERT INTO payroll VALUES (%s, %d, %d, %d, %d, %d)"
     cursor = db_conn.cursor()
     cursor.execute(insert_sql, (emp_id, salary, epf, socso, tax, net))
-        db_conn.commit()
-        cursor.close()            
+    db_conn.commit()
+    cursor.close()            
     
     return render_template('AddPayRollOutput.html',emp = emp_id)
 
