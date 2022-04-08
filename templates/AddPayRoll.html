@@ -44,7 +44,61 @@
 
 </head>
 <body>
+    <script>
+        function multiplyBy()
+        {
+        salary = document.getElementById(
+            "salary").value;
+        if(salary < 5000){
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary * 0.0 / 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 0 / 100);
+        }else if(salary > 5001 || salary < 20000){
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary * 1 / 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 1 / 100);
+        }else if(salary > 20001 || salary < 35000){
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary * 3 / 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 3 / 100);
+        }else if(salary > 35001 || salary < 50000){
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary *  8/ 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 8 / 100);
+        }else{
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary *  14 / 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 14 / 100);
+        }
 
+        }
+        
+    </script>
     <header id="masthead" class="site-header">
         <nav id="primary-navigation" class="site-navigation">
             <div class="container">
@@ -137,7 +191,7 @@
                                 </div>
                             </div>
                             <div class="text-center mt-20 col-sm-6">
-                                <input type="button" class="btn btn-green" onClick="multiplyBy" value="Calculate">
+                                <input type="button" class="btn btn-green" onClick="multiplyBy()" value="Calculate">
                             </div>
                             <div class="text-center mt-20 col-sm-6">
                                 <button type="submit" class="btn btn-green">Add</button>
@@ -186,60 +240,6 @@
     <script src="static/js/jquery.shuffle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
     <script src="static/js/script.js"></script>
-    <script>
-        function multiplyBy()
-        {
-        salary = document.getElementById(
-            "salary").value;
-        if(salary < 5000){
-            document.getElementById(
-            "epf").innerHTML = salary * 11 / 100;
-            document.getElementById(
-            "socso").innerHTML = salary * 0.5 / 100;
-            document.getElementById(
-            "tax").innerHTML = salary * 0.0 / 100;
-            document.getElementById(
-            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 0 / 100);
-        }else if(salary > 5001 || salary < 20000){
-            document.getElementById(
-            "epf").innerHTML = salary * 11 / 100;
-            document.getElementById(
-            "socso").innerHTML = salary * 0.5 / 100;
-            document.getElementById(
-            "tax").innerHTML = salary * 1 / 100;
-            document.getElementById(
-            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 1 / 100);
-        }else if(salary > 20001 || salary < 35000){
-            document.getElementById(
-            "epf").innerHTML = salary * 11 / 100;
-            document.getElementById(
-            "socso").innerHTML = salary * 0.5 / 100;
-            document.getElementById(
-            "tax").innerHTML = salary * 3 / 100;
-            document.getElementById(
-            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 3 / 100);
-        }else if(salary > 35001 || salary < 50000){
-            document.getElementById(
-            "epf").innerHTML = salary * 11 / 100;
-            document.getElementById(
-            "socso").innerHTML = salary * 0.5 / 100;
-            document.getElementById(
-            "tax").innerHTML = salary *  8/ 100;
-            document.getElementById(
-            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 8 / 100);
-        }else{
-            document.getElementById(
-            "epf").innerHTML = salary * 11 / 100;
-            document.getElementById(
-            "socso").innerHTML = salary * 0.5 / 100;
-            document.getElementById(
-            "tax").innerHTML = salary *  14 / 100;
-            document.getElementById(
-            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 14 / 100);
-        }
 
-        };
-        
-    </script>
 </body>
 </html>
