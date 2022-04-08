@@ -66,6 +66,7 @@
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                                 <li><a href="{{ url_for('payroll') }}">Add PayRoll</a></li>
                                 <li><a href="{{ url_for('getemppayroll') }}">Edit PayRoll</a></li>
+                                <li><a href="{{ url_for('getviewemppayroll') }}">View PayRoll</a></li>
                             </ul>
 
                         </li>
@@ -97,7 +98,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <form action="/getviewemppayroll" autocomplete="on" method = "POST">
+                        <form action="/viewemppayroll" autocomplete="on" method = "POST">
 
                                     <div class="form-group">
                                       <label>Employee ID:</label>
