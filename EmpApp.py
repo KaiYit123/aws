@@ -46,7 +46,7 @@ def getemppayroll():
 def getemppayrolltoedit():
     emp_id = request.form['emp_id']
 
-    rtr_sql = "SELECT * FROM employee WHERE emp_id = %s"
+    rtr_sql = "SELECT * FROM payroll WHERE emp_id = %s"
     cursor = db_conn.cursor()
     cursor.execute(rtr_sql,(emp_id))
     db_conn.commit()
@@ -63,7 +63,7 @@ def updateemppayroll():
     tax = request.form['tax']
     net = request.form['net']
 
-    update_sql = "UPDATE employee SET salary=%s, epf=%s, socso=%s,tax=%s, net=%s WHERE emp_id = %s"
+    update_sql = "UPDATE payroll SET salary=%s, epf=%s, socso=%s,tax=%s, net=%s WHERE emp_id = %s"
     cursor = db_conn.cursor()
     cursor.execute(update_sql,(salary,epf,socso,tax,net,emp_id))
     db_conn.commit()
