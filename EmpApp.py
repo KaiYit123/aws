@@ -105,9 +105,10 @@ def AddEmp():
     last_name = request.form['last_name']
     pri_skill = request.form['pri_skill']
     location = request.form['location']
+    hire_date = request.form['location']
     emp_image_file = request.files['emp_image_file']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -120,7 +121,7 @@ def AddEmp():
         # Uplaod image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file" + ".jpg"
         emp_url = "https://hongkaiyit-bucket.s3.amazonaws.com/" + emp_image_file_name_in_s3
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, emp_url))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, hire_date, emp_url))
         db_conn.commit()
         s3 = boto3.resource('s3')
 
@@ -151,7 +152,20 @@ def AddEmp():
 
 @app.route("/addPayRoll")
 def addPayRoll():
-    return render_template('AddPayRoll.html')
+    emp_id = request.form['emp_id']
+    salary = request.form['salary']
+    epf = request.form['epf']
+    socso = request.form['socso']
+    tax = request.form['tax']
+    net = request.form['net']
+
+    insert_sql = "INSERT INTO payroll VALUES (%s, %d, %d, %d, %d, %d)"
+    cursor = db_conn.cursor()
+    cursor.execute(insert_sql, (emp_id, salary, epf, socso, tax, net))
+        db_conn.commit()
+        cursor.close()            
+    
+    return render_template('AddPayRollOutput.html',emp = emp_id)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
