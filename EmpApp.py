@@ -38,6 +38,39 @@ def about():
 def view():
     return render_template('GetEmp.html')
 
+@app.route("/getemppayroll")
+def getemppayroll():
+    return render_template('GetEmpPayRoll.html')
+
+@app.route("/getemppayrolltoedit", methods=['POST'])
+def getemppayrolltoedit():
+    emp_id = request.form['emp_id']
+
+    rtr_sql = "SELECT * FROM employee WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+    cursor.execute(rtr_sql,(emp_id))
+    db_conn.commit()
+    emp = cursor.fetchone()
+    cursor.close()
+    return render_template('EditEmpPayRoll.html', emp = emp)
+
+@app.route("/updateemppayroll", methods=['POST','GET'])
+def updateemppayroll():
+    emp_id = request.form['emp_id']
+    salary = request.form['salary']
+    epf = request.form['epf']
+    socso = request.form['socso']
+    tax = request.form['tax']
+    net = request.form['net']
+
+    update_sql = "UPDATE employee SET salary=%s, epf=%s, socso=%s,tax=%s, net=%s WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+    cursor.execute(update_sql,(salary,epf,socso,tax,net,emp_id))
+    db_conn.commit()
+    user = cursor.fetchone()
+    cursor.close()
+    return render_template('EditEmpPayRollOutput.html', id = emp_id)
+
 @app.route("/edit")
 def edit():
     return render_template('GetEmpEdit.html')

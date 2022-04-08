@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>WorkBalance | Edit Employee</title>
+    <title>WorkBalance | Add PayRoll</title>
 
     <meta name="description" content="">
     <meta name="author" content="">
@@ -44,7 +44,61 @@
 
 </head>
 <body>
+    <script>
+        function multiplyBy()
+        {
+        salary = document.getElementById(
+            "salary").value;
+        if(salary < 5000){
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary * 0.0 / 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 0 / 100);
+        }else if(salary > 5001 || salary < 20000){
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary * 1 / 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 1 / 100);
+        }else if(salary > 20001 || salary < 35000){
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary * 3 / 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 3 / 100);
+        }else if(salary > 35001 || salary < 50000){
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary *  8/ 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 8 / 100);
+        }else{
+            document.getElementById(
+            "epf").innerHTML = salary * 11 / 100;
+            document.getElementById(
+            "socso").innerHTML = salary * 0.5 / 100;
+            document.getElementById(
+            "tax").innerHTML = salary *  14 / 100;
+            document.getElementById(
+            "net").innerHTML = salary - (salary * 11 / 100) - (salary * 0.5 / 100) - (salary * 14 / 100);
+        }
 
+        }
+        
+    </script>
     <header id="masthead" class="site-header">
         <nav id="primary-navigation" class="site-navigation">
             <div class="container">
@@ -77,14 +131,14 @@
 
                 </div>
 
-            </div>      
+            </div>     
         </nav><!-- /.site-navigation -->
     </header><!-- /#mastheaed -->
 
     <div id="hero" class="hero overlay subpage-hero contact-hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Edit Employee</h1>
+                <h1>PayRoll</h1>
             </div><!-- /.hero-text -->
         </div><!-- /.hero-content -->
     </div><!-- /.hero -->
@@ -94,40 +148,57 @@
         <section class="site-section subpage-site-section section-contact-us">
 
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <form action="/update" autocomplete="on" method = "POST" enctype="multipart/form-data">
-
+                <div class="row mt-50">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 class="text-center heading-separator">Calculate and Add PayRoll</h2>
+                        <form action="/updateemppayroll" autocomplete="on" method = "POST">
+                            <div class="row">
+                                <div class="col-sm-12">
                                     <div class="form-group">
-                                      <label>Employee ID:</label>
-                                      <textarea style="height: 60px; resize: none; " name="emp_id" id="emp_id" class="form-control" readonly="true">{{ user[0] }}</textarea>
+                                      <label for="email">Employee ID:</label>
+                                      <textarea type="number" class="form-control" style="height: 60px; resize: none; " id="emp_id" name="emp_id" required="true" readonly="true">{{ emp[0] }}</textarea>
                                     </div>
-
-
+                                </div>
+                                <div class="col-sm-12 mt-20">
                                     <div class="form-group">
-                                        <label>First Name:</label>
-                                        <textarea style="height: 60px; resize: none; " name="first_name" id="first_name" class="form-control">{{ user[1] }}</textarea>
+                                      <label for="name">Salary:</label>
+                                      <textarea type="number" class="form-control" style="height: 60px; resize: none; " id="salary" name="salary" required="true">{{ emp[1] }}</textarea>
                                     </div>
-
-                            <div class="form-group">
-                                <label>Last Name:</label>
-                                <textarea style="height: 60px; resize: none; " name="last_name" id="last_name" class="form-control">{{ user[2] }}</textarea>
+                                </div>
+                                <div class="col-sm-12 mt-20">
+                                    <div class="form-group">
+                                      <label for="name">EPF:</label>
+                                      <textarea type="number" class="form-control" style="height: 60px; resize: none; " readonly="true" id="epf" name="epf"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mt-20">
+                                    <div class="form-group">
+                                      <label for="name">SOCSO:</label>
+                                      <textarea type="number" class="form-control" style="height: 60px; resize: none; " readonly="true" id="socso" name="socso"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mt-20">
+                                    <div class="form-group">
+                                      <label for="name">Tax:</label>
+                                      <textarea type="number" class="form-control" style="height: 60px; resize: none; " readonly="true" id="tax" name="tax"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mt-20">
+                                    <div class="form-group">
+                                      <label for="name">Net Salary:</label>
+                                      <textarea type="number" class="form-control" style="height: 60px; resize: none; " readonly="true" id="net" name="net"></textarea>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Primary Skill:</label>
-                                <textarea style="height: 60px; resize: none; " name="pri_skill" id="pri_skill" class="form-control">{{ user[3] }}</textarea>
+                            <div class="text-center mt-20 col-sm-6">
+                                <input type="button" class="btn btn-green" onClick="multiplyBy()" value="Calculate">
                             </div>
-                            <div class="form-group">
-                                <label>Location:</label>
-                                <textarea style="height: 60px; resize: none; " name="location" id="location" class="form-control">{{ user[4] }}</textarea>
-                            </div>
-
-                            <div class="text-center">
+                            <div class="text-center mt-20 col-sm-6">
                                 <button class="btn btn-green">Update</button>
                             </div>
                         </form>
                     </div>
-                </div>
+                </div><!-- /.form -->
             </div>
             
         </section><!-- /.section-contact-us -->
@@ -169,6 +240,6 @@
     <script src="static/js/jquery.shuffle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
     <script src="static/js/script.js"></script>
-  
+
 </body>
 </html>
