@@ -25,6 +25,9 @@ table = 'employee'
 def home():
     return render_template('index.html')
 
+@app.route("/homepage")
+def homepage():
+    return render_template('index.html')
 
 @app.route("/add")
 def Add():
@@ -41,6 +44,23 @@ def view():
 @app.route("/getemppayroll")
 def getemppayroll():
     return render_template('GetEmpPayRoll.html')
+
+@app.route("/getviewemppayroll")
+def getviewemppayroll():
+    return render_template('GetViewEmpPayRoll.html')
+
+@app.route("/viewemppayroll", methods=['POST'])
+def viewemppayroll():
+    emp_id = request.form['emp_id']
+
+    rtr_sql = "SELECT * FROM payroll WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+    cursor.execute(rtr_sql,(emp_id))
+    db_conn.commit()
+    emp = cursor.fetchone()
+    cursor.close()
+    return render_template('ViewEmpPayRoll.html', emp = emp)
+
 
 @app.route("/getemppayrolltoedit", methods=['POST'])
 def getemppayrolltoedit():

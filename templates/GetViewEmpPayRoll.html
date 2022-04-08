@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>WorkBalance | View Employee PayRoll</title>
+    <title>WorkBalance</title>
 
     <meta name="description" content="">
     <meta name="author" content="">
@@ -63,8 +64,8 @@
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
 
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                              <li><a href="{{ url_for('payroll') }}">Add PayRoll</a></li>
-                              <li><a href="blog.html">Blog</a></li>
+                                <li><a href="{{ url_for('payroll') }}">Add PayRoll</a></li>
+                                <li><a href="{{ url_for('getemppayroll') }}">Edit PayRoll</a></li>
                             </ul>
 
                         </li>
@@ -77,14 +78,14 @@
 
                 </div>
 
-            </div>   
+            </div>       
         </nav><!-- /.site-navigation -->
     </header><!-- /#mastheaed -->
 
-    <div id="hero" class="hero overlay subpage-hero contact-hero">
+    <div id="hero" class="hero overlay subpage-hero portfolio-hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>PayRoll Information</h1>
+                <h1>Enter Employee ID to view</h1>
             </div><!-- /.hero-text -->
         </div><!-- /.hero-content -->
     </div><!-- /.hero -->
@@ -93,54 +94,22 @@
 
         <section class="site-section subpage-site-section section-contact-us">
 
-            <div class="container" style="text-align: center;">
-                <div class="row mt-50">
-                    <div class="col-md-8 col-md-offset-2">
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form action="/getviewemppayroll" autocomplete="on" method = "POST">
+
                                     <div class="form-group">
                                       <label>Employee ID:</label>
-                                      <label>{{ emp[0] }}</label>
+                                      <input type="number" name="emp_id" class="form-control">
                                     </div>
-                                </div>
-                                <div class="col-sm-12 mt-20">
-                                    <div class="form-group">
-                                      <label>Salary:</label>
-                                      <label>{{ emp[1] }}</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 mt-20">
-                                    <div class="form-group">
-                                      <label>EPF:</label>
-                                      <label>{{ emp[2] }}</label>                                    
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 mt-20">
-                                    <div class="form-group">
-                                      <label>SOCSO:</label>
-                                      <label>{{ emp[3] }}</label>                                    
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 mt-20">
-                                    <div class="form-group">
-                                      <label>Tax:</label>
-                                      <label>{{ emp[4] }}</label>                                    
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 mt-20">
-                                    <div class="form-group">
-                                      <label>Net Salary:</label>
-                                      <label>{{ emp[5] }}</label>                                    
-                                    </div>
-                                </div>
+
+                            <div class="text-center">
+                                <button class="btn btn-green">Search</button>
                             </div>
-                            <a href="{{ url_for('home') }}">
-                                <button type="submit" class="btn btn-green">Back to Homepage</button>
-                            </a>
                         </form>
                     </div>
-                </div><!-- /.form -->
+                </div>
             </div>
             
         </section><!-- /.section-contact-us -->
@@ -171,6 +140,8 @@
         </div><!-- /.copyright -->
     </footer><!-- /#footer -->
 
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -180,8 +151,7 @@
     <script src="static/js/jquery.slicknav.min.js"></script>
     <script src="static/js/jquery.countTo.min.js"></script>
     <script src="static/js/jquery.shuffle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
     <script src="static/js/script.js"></script>
-
+  
 </body>
 </html>
