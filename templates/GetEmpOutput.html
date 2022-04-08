@@ -45,6 +45,7 @@
 </head>
 <body>
 
+
     <header id="masthead" class="site-header">
         <nav id="primary-navigation" class="site-navigation">
             <div class="container">
@@ -94,7 +95,7 @@
         <section class="site-section subpage-site-section section-contact-us">
 
             <div class="container" style="text-align: center;">
-                <img class="img-res" src="https://hongkaiyit-bucket.s3.amazonaws.com/emp-id-981_image_file.jpg" alt="">
+                <img id="imgsrc" class="img-res center" src="" style="width: 200px; height: 300px; display: block; margin-left: auto; margin-right: auto;"><br/>
 
                 <label>Employee ID:</label>
                 <label name="emp_id">{{ user[0] }}</label><br/><br/> 
@@ -156,6 +157,9 @@
     <script src="static/js/jquery.shuffle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
     <script src="static/js/script.js"></script>
-  
+    <script>
+        var img = document.getElementById('imgsrc');
+        img.src = "{{ user[5] }}"
+    </script>
 </body>
 </html>
